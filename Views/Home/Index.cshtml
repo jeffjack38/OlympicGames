@@ -1,0 +1,44 @@
+﻿@model CountryListViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    ViewData["Title"] = "Country Flags";
+
+}
+<div class="row">
+    <div class="col-sm-3">
+        <h3>Category</h3>
+        <div class="list-group">
+            @foreach (Category cat in Model.Categories) {
+                <a asp-action="Index"
+                   asp-route-activeCat="@cat.CategoryID"
+                   asp-route-activeGame="@Model.ActiveGame"
+                   class="list-group-item @Model.CheckActiveCat(cat.CategoryID)">
+                    @cat.Name</a>
+            }
+        </div>
+        <h3>Game</h3>
+        <div class="list-group">
+            @foreach (Game game in Model.Games)
+            {
+                <a asp-action="Index"
+                   asp-route-activeCat="@Model.ActiveCat"
+                   asp-route-activeGame="@game.GameID"
+                   class="list-group-item @Model.CheckActiveGame(game.GameID)">
+                    @game.Name
+                </a>
+            }
+        </div>
+        </div>
+        <div class="col-sm-9">
+            <ul class="list-inline">
+                @foreach (Country country in Model.Countries)
+                {
+                    <li class="list-inline-item">
+                        <img src="~/images/flags/@country.FlagImage" alt="@country.Name"
+                             title="@country.Name | @country.Category.Name @country.Game.Name" />
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
