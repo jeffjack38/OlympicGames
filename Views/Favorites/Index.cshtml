@@ -1,0 +1,40 @@
+﻿@model CountryListViewModel
+
+@{
+    ViewData["Title"] = "Favorites";
+}
+<div class="text-center">
+    <h2>My Favorites</h2>
+    <form asp-action="Delete" method="post">
+        <a asp-acition="Index" asp-controller="Home" calss="btn btn-primary"
+            asp-route-activeCat="@Model.ActiveCat"
+            asp-route-activeGame="@Model.ActiveGame">Back to Home Page</a>
+            <button type="submit" class="btn btn-primary">
+                Clear Favorites
+            </button>
+    </form>
+    <br />
+</div>
+
+<div class="row">
+    <div class="col-8 offset-2">
+        <ul class="list-group">
+            @foreach (Country country in Model.Countries)
+            {
+                <li class="list-group-item">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <img src="~/images/flags/@country.FlagImage" alt="" />
+                        </div>
+                        <div class="col-sm-4">
+                            @country.Name
+                        </div>
+                        <div class="col-sm-4">
+                            @country.Category.Name @country.Game.Name
+                        </div>
+                    </div>
+                </li>
+            }
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,40 @@
+﻿using OlympicGames.Models.CountryViewMdoel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Country Details";
+
+}
+
+<h2>Country Details</h2>
+
+<div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+        <ul class="list-group text-center">
+            <li class="list-group-item">
+                <img src="~/images/flags/@Model.Country.CountryImage" alt="" />
+                <h3>@Model.Country.Name</h3>
+            </li>
+            <li class="list-group-item">
+                <h4>Category: @Model.Country.Category.Name</h4>
+            </li>
+            <li class="list-group-item">
+                <h4>Game: @Model.Country.Game.Name</h4>
+            </li>
+
+            <li class="list-group-item">
+                <form asp-action="Add" method"post">
+                 <a asp-action="Index" class="btn btn-primary"
+                    asp-route-activeCat="@Model.ActiveCat"
+                    asp-route-activeGame="@Model.ActiveGame">
+                     Return to Home Page</a>
+                 <button type="submit" class="btn btn-primary">
+                    Add to Favorites
+                 </button>
+                    <input type="hidden" asp-for="Country.CountryID" />"
+                </form>
+            </li>
+        </ul>
+    </div>
+
+</div>

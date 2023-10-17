@@ -5,13 +5,32 @@
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/NFLTeamsAppFirst.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/OlympicGames.styles.css" asp-append-version="true" />
     <title>@ViewBag.Title</title>
 </head>
 <body>
     <div class="container">
         <header class="text-center text-white">
             <h1 class="bg-primary mt-3 p-3">Country Flags</h1>
+
+            @* show any message in TempData*@
+            @if (TempData["message"] != null)
+            {
+                <h4 class="bg-success p-2">@TempData["message"]</h4>
+
+            }
+
+            @* show link to Favorites page unless on Favorites page*@
+            @if (!ViewContext.View.Path.Contains("Favorites"))
+            {
+                var session = new CountrySession(Context.Session);
+                <h5 class="bg-info p-2">
+                    <a asp-controller="Favorites" class="text-white">My Favortie Teams</a>
+
+                    @*display number of fav countries in badge*@
+                    <span class="badge badge-light">@(session.GetMyCountryCount())</span>
+                </h5>
+            }
         </header>
         <main>
             @RenderBody()

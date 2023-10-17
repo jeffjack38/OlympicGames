@@ -1,11 +1,8 @@
 ﻿namespace OlympicGames.Models
 {
-    public class CountryListViewModel
+    public class CountryListViewModel : CountryViewModel
     {
         public List<Country> Countries { get; set; }
-        public string ActiveCat { get; set; }
-        public string ActiveGame { get; set; }
-
 
         //make next two properties standard properties so the setter can make the first item in each list "All"
 

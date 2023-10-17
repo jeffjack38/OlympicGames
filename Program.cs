@@ -3,6 +3,10 @@ using OlympicGames.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
+//MUST bet called vefore AddControllersWithViews
+builder.Services.AddMemoryCache();
+builder.Services.AddSession();
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
@@ -19,6 +23,8 @@ builder.Services.AddRouting(options =>
 
 var app = builder.Build();
 
+
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
@@ -31,12 +37,17 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+// MUST BE CALLED before UseEndPoints
+app.UseSession();
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
 
 app.UseAuthorization();
+
+
 
 app.MapControllerRoute(
     name: "custom",
