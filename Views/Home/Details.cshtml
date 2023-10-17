@@ -1,4 +1,4 @@
-﻿using OlympicGames.Models.CountryViewMdoel
+﻿@model OlympicGames.Models.CountryViewModel
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -12,7 +12,7 @@
     <div class="col-sm-6 col-sm-offset-3">
         <ul class="list-group text-center">
             <li class="list-group-item">
-                <img src="~/images/flags/@Model.Country.CountryImage" alt="" />
+                <img src="~/images/flags/@Model.Country.FlagImage" alt="" />
                 <h3>@Model.Country.Name</h3>
             </li>
             <li class="list-group-item">
@@ -29,9 +29,9 @@
                     asp-route-activeGame="@Model.ActiveGame">
                      Return to Home Page</a>
                  <button type="submit" class="btn btn-primary">
-                    Add to Favorites
+                     Add to Favorites
                  </button>
-                    <input type="hidden" asp-for="Country.CountryID" />"
+                 <input type="hidden" asp-for="Country.CountryID" />
                 </form>
             </li>
         </ul>
