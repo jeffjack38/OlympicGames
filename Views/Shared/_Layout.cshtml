@@ -25,7 +25,7 @@
             {
                 var session = new CountrySession(Context.Session);
                 <h5 class="bg-info p-2">
-                    <a asp-controller="Favorites" class="text-white">My Favortie Teams</a>
+                    <a asp-controller="Favorites" class="text-white">My Favortie Countries</a>
 
                     @*display number of fav countries in badge*@
                     <span class="badge badge-light">@(session.GetMyCountryCount())</span>
