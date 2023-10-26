@@ -9,33 +9,25 @@ namespace OlympicGames.Controllers
     {
         private CountryContext context;
 
+
         public HomeController(CountryContext ctx)
         {
             context = ctx;
         }
 
-        public ViewResult Index(string activeCat = "all", string activeGame = "all")
+        public ViewResult Index(CountryListViewModel model)
         {
-            //create a CountrySession object
-            var session = new CountrySession(HttpContext.Session);
-            //call methods from the session state object to store the IDs of the active cat and agme in session state
-            session.SetActiveCat(activeCat);
-            session.SetActiveGame(activeGame);  
-
-            var model = new CountryListViewModel {
-                ActiveCat = activeCat,
-                ActiveGame = activeGame,
-                Categories = context.Categories.ToList(),
-                Games = context.Games.ToList(),
-            };
+            model.Categories = context.Categories.ToList();
+            model.Games = context.Games.ToList();
 
             IQueryable<Country> query = context.Countries;
-            if (activeCat != "all")
-                query = query.Where(t => 
-                    t.Category.CategoryID.ToLower() == activeCat.ToLower());
-            if (activeGame != "all")
+            // conditional where clauses based on active cat and game
+            if (model.ActiveCat != "all")
                 query = query.Where(t =>
-                    t.Game.GameID.ToLower() == activeGame.ToLower());
+                    t.Category.CategoryID.ToLower() == model.ActiveCat.ToLower());
+            if (model.ActiveGame != "all")
+                query = query.Where(t =>
+                    t.Game.GameID.ToLower() == model.ActiveGame.ToLower());
             model.Countries = query.ToList();
             return View(model);
 
