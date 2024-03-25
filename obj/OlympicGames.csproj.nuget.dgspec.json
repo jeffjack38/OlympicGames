@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jeade\\source\\repos\\OlympicGames\\OlympicGames.csproj": {}
+    "C:\\Users\\jeade\\Source\\Repos\\OlympicGames\\OlympicGames.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jeade\\source\\repos\\OlympicGames\\OlympicGames.csproj": {
+    "C:\\Users\\jeade\\Source\\Repos\\OlympicGames\\OlympicGames.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jeade\\source\\repos\\OlympicGames\\OlympicGames.csproj",
+        "projectUniqueName": "C:\\Users\\jeade\\Source\\Repos\\OlympicGames\\OlympicGames.csproj",
         "projectName": "OlympicGames",
-        "projectPath": "C:\\Users\\jeade\\source\\repos\\OlympicGames\\OlympicGames.csproj",
+        "projectPath": "C:\\Users\\jeade\\Source\\Repos\\OlympicGames\\OlympicGames.csproj",
         "packagesPath": "C:\\Users\\jeade\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jeade\\source\\repos\\OlympicGames\\obj\\",
+        "outputPath": "C:\\Users\\jeade\\Source\\Repos\\OlympicGames\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\jeade\\AppData\\Roaming\\NuGet\\NuGet.Config",
